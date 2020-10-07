@@ -1,0 +1,76 @@
+/**======> Referance By Comment <======
+ * ===> 01 - Standard Header
+ * ===> 02 - Container Layout
+ * ===> 03 - Logo Element
+ * ===> 04 - Actions Buttons
+ * ===> 05 - Search Box
+ * ===> 06 - Primary Colored
+ * ===> 07 - Secondary Colored
+*/
+
+/*======== Standard Header ========*/
+.tornado-header {
+    box-shadow: var(--component-shadow);
+    z-index: 100;
+    @include header (
+        //====> Base Options <======//
+        $height     : 64px,
+        $background : var(--component-background),
+        $color      : var(--component-color),
+        $font-size  : 0.9375rem,
+        //====> Menu Options <======//
+        $menu-background-hvr : transparent,    //====> Menu Links Hover Background
+        $menu-color-hvr      : var(--component-active-bg), //====> Menu Links Hover Color
+        $dropdown-background : var(--component-background),         //====> Dropdown Menu Background
+        $dropdown-color      : var(--component-color),     //====> Dropdown Menu Links Color
+        $dropdown-color-hvr  : var(--component-active-color),    //====> Dropdown Menu Links Color Hover
+        $dropdown-background-hvr:var(--component-active-bg), //====> Dropdown Menu Background Hover
+        //====> Icons buttons <======//
+        $icon-btn-size : 2.25rem,     //====> Icon Width and Height
+        $icon-size:1.25rem,           //====> Icon Font Size
+        $icon-background:transparent, //====> Icon Button Background 
+        $icon-color:var(--component-color),      //====> Icon Button Color
+    );
+
+    //=== Container Layout ===//
+    .container,.container-fluid,.container-xl {
+        @extend %flexbox;
+        @extend .align-between;
+        @extend .align-center-y;
+        &::after{ display: none; }
+    }
+
+    //=== Logo Element ===//
+    .logo {
+        color:inherit;
+        position: relative;
+        display: block;
+        width:95px;
+        height: 64px;
+        img {
+            position: absolute;
+            top:0;
+            #{$direction}:0;
+            border: 15px solid #FFF;
+            border-radius: 0 0 5px 20px;
+        }
+    }
+    
+    /*=== Actions Buttons ===*/
+    .action-btns {
+        /*==== Icon Button ====*/
+        .icon-btn {
+            text-align: center;
+            width:36px;
+            &:not(.menu-btn) { @extend %inline-block; }
+            @extend %fast-motion;
+        }
+
+        .laguage-btn {
+            @extend %inline-block;
+            font-size:15px;
+            color:var(--gray-color);
+            &::before{margin-right:5px;font-size:17px;}
+        }
+    }
+}
